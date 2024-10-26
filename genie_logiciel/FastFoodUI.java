@@ -3,7 +3,7 @@ import java.awt.*;
 import order.OrderManager;
 import item.*;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent; // Gardez cette importation
+import java.awt.event.MouseEvent; 
 
 public class FastFoodUI extends JFrame {
     private JList<String> orderList;
@@ -63,8 +63,7 @@ public class FastFoodUI extends JFrame {
     }
 
     private JPanel createCategoryPanel(String category, Item[] items) {
-        JPanel panel = new JPanel(new GridLayout((items.length + 2) / 3, 3, 5, 5)); // Ajustement du layout pour les
-                                                                                    // items
+        JPanel panel = new JPanel(new GridLayout((items.length + 2) / 3, 3, 5, 5));
         panel.setBorder(BorderFactory.createTitledBorder(category));
 
         for (Item item : items) {
