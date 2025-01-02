@@ -27,10 +27,13 @@
         <Property name="alignment" type="int" value="0"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="BackButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Retour"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BackButtonMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -64,15 +67,21 @@
             <Property name="verticalGap" type="int" value="10"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="CancelButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Annuler"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CancelButtonMouseClicked"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="ValidateButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Valider"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ValidateButtonMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -105,14 +114,37 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Container class="javax.swing.JPanel" name="PricesPanel">
+                <Container class="javax.swing.JPanel" name="jPanel9">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                       <BorderConstraints direction="Center"/>
                     </Constraint>
                   </Constraints>
 
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="PricesPanel">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                            <EmptyBorder bottom="10" left="10" right="10" top="10"/>
+                          </Border>
+                        </Property>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                          <BorderConstraints direction="North"/>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                        <Property name="columns" type="int" value="1"/>
+                        <Property name="horizontalGap" type="int" value="10"/>
+                        <Property name="rows" type="int" value="0"/>
+                        <Property name="verticalGap" type="int" value="10"/>
+                      </Layout>
+                    </Container>
+                  </SubComponents>
                 </Container>
               </SubComponents>
             </Container>
@@ -136,14 +168,37 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Container class="javax.swing.JPanel" name="ProductsPanel">
+                <Container class="javax.swing.JPanel" name="jPanel8">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                       <BorderConstraints direction="Center"/>
                     </Constraint>
                   </Constraints>
 
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="ProductsPanel">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                            <EmptyBorder bottom="10" left="10" right="10" top="10"/>
+                          </Border>
+                        </Property>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                          <BorderConstraints direction="North"/>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                        <Property name="columns" type="int" value="1"/>
+                        <Property name="horizontalGap" type="int" value="10"/>
+                        <Property name="rows" type="int" value="0"/>
+                        <Property name="verticalGap" type="int" value="10"/>
+                      </Layout>
+                    </Container>
+                  </SubComponents>
                 </Container>
               </SubComponents>
             </Container>

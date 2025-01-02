@@ -16,16 +16,22 @@ public class Order implements Purchasable, Describable {
     private ArrayList<Product> products;
     private ArrayList<Menu> menus;
     private int id;
+    private String state;
     
     public Order(ArrayList<Product> products, ArrayList<Menu> menus) {
         this.products = products;
         this.menus = menus;
         Random random = new Random();
         this.id = random.nextInt(0, 999);
+        this.state = "En cours de préparation";
     }
     
     public Order() {
         this(new ArrayList<>(), new ArrayList<>());
+    }
+    
+    public void setState(String state) {
+        this.state = state;
     }
     
     public String getName() {
