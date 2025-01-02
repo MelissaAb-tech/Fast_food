@@ -25,16 +25,16 @@ public class MainKitchenUI extends javax.swing.JFrame {
         this.showListOrderFrame();
     }
     
-    private void showListOrderFrame() {
-//        this.removeAll();
-        this.add(this.orderListFrame);
+    public void showListOrderFrame() {
+        this.jPanel1.removeAll();
+        this.jPanel1.add(this.orderListFrame);
         this.revalidate();
         this.repaint();
     }
     
     public void showOrderDetailFrame(Order order) {
-        this.remove(this.orderListFrame);
-        this.add(new OrderDetailPanel(order));
+        this.jPanel1.remove(this.orderListFrame);
+        this.jPanel1.add(new OrderDetailPanel(order, this, this.orderListManager));
         
         this.revalidate();
         this.repaint();
@@ -49,12 +49,18 @@ public class MainKitchenUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+
+        jPanel1.setLayout(new java.awt.BorderLayout());
+        getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

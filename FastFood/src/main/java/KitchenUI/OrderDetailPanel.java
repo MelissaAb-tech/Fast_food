@@ -4,8 +4,10 @@
  */
 package KitchenUI;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import order.*;
+import menu.*;
 import product.*;
 
 /**
@@ -14,11 +16,15 @@ import product.*;
  */
 public class OrderDetailPanel extends javax.swing.JPanel {
     private Order order;
+    private OrderListManager orderListManager;
+    private MainKitchenUI mainKitchenUI;
     
     /**
      * Creates new form OrderDetailPanel
      */
-    public OrderDetailPanel(Order order) {
+    public OrderDetailPanel(Order order, MainKitchenUI mainKitchenUI, OrderListManager orderListManager) {
+        this.orderListManager = orderListManager;
+        this.mainKitchenUI = mainKitchenUI;
         this.order = order;
         initComponents();
         this.OrderNameLabel.setText(this.order.getName());
@@ -27,9 +33,23 @@ public class OrderDetailPanel extends javax.swing.JPanel {
     
     private void setProducts() {
         for (Product p: this.order.getProducts()) {
-            JPanel panel = new JPanel();
-            panel.add(new JLabel(p.getDescription()));
-            this.ProductsPanel.add(panel);
+            JPanel descPanel = new JPanel();
+            descPanel.add(new JLabel(p.getDescription()));
+            this.ProductsPanel.add(descPanel);
+            
+            JPanel pricePanel = new JPanel();
+            pricePanel.add(new JLabel(String.format("%.2f€", p.getPrice())));
+            this.PricesPanel.add(pricePanel);
+        }
+        
+        for (Menu m: this.order.getMenus()) {
+            JPanel descPanel = new JPanel();
+            descPanel.add(new JLabel(m.getName()));
+            this.ProductsPanel.add(descPanel);
+            
+            JPanel pricePanel = new JPanel();
+            pricePanel.add(new JLabel(String.format("%.2f€", m.getPrice())));
+            this.PricesPanel.add(pricePanel);
         }
         
         this.revalidate();
@@ -46,17 +66,19 @@ public class OrderDetailPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        BackButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        CancelButton = new javax.swing.JButton();
+        ValidateButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
         PricesPanel = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
         ProductsPanel = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         OrderNameLabel = new javax.swing.JLabel();
@@ -65,8 +87,13 @@ public class OrderDetailPanel extends javax.swing.JPanel {
 
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jButton1.setText("Retour");
-        jPanel1.add(jButton1);
+        BackButton.setText("Retour");
+        BackButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackButtonMouseClicked(evt);
+            }
+        });
+        jPanel1.add(BackButton);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
@@ -75,11 +102,21 @@ public class OrderDetailPanel extends javax.swing.JPanel {
         jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel3.setLayout(new java.awt.GridLayout(1, 2, 10, 10));
 
-        jButton2.setText("Annuler");
-        jPanel3.add(jButton2);
+        CancelButton.setText("Annuler");
+        CancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CancelButtonMouseClicked(evt);
+            }
+        });
+        jPanel3.add(CancelButton);
 
-        jButton3.setText("Valider");
-        jPanel3.add(jButton3);
+        ValidateButton.setText("Valider");
+        ValidateButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ValidateButtonMouseClicked(evt);
+            }
+        });
+        jPanel3.add(ValidateButton);
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
@@ -91,8 +128,13 @@ public class OrderDetailPanel extends javax.swing.JPanel {
         jLabel2.setText("Prix (€)");
         jPanel5.add(jLabel2, java.awt.BorderLayout.NORTH);
 
-        PricesPanel.setLayout(new javax.swing.BoxLayout(PricesPanel, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel5.add(PricesPanel, java.awt.BorderLayout.CENTER);
+        jPanel9.setLayout(new java.awt.BorderLayout());
+
+        PricesPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        PricesPanel.setLayout(new java.awt.GridLayout(0, 1, 10, 10));
+        jPanel9.add(PricesPanel, java.awt.BorderLayout.NORTH);
+
+        jPanel5.add(jPanel9, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel5, java.awt.BorderLayout.LINE_END);
 
@@ -102,8 +144,13 @@ public class OrderDetailPanel extends javax.swing.JPanel {
         jLabel3.setText("Produit(s)");
         jPanel6.add(jLabel3, java.awt.BorderLayout.PAGE_START);
 
-        ProductsPanel.setLayout(new javax.swing.BoxLayout(ProductsPanel, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel6.add(ProductsPanel, java.awt.BorderLayout.CENTER);
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        ProductsPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        ProductsPanel.setLayout(new java.awt.GridLayout(0, 1, 10, 10));
+        jPanel8.add(ProductsPanel, java.awt.BorderLayout.NORTH);
+
+        jPanel6.add(jPanel8, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel6, java.awt.BorderLayout.CENTER);
 
@@ -120,14 +167,38 @@ public class OrderDetailPanel extends javax.swing.JPanel {
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMouseClicked
+        this.mainKitchenUI.showListOrderFrame();
+    }//GEN-LAST:event_BackButtonMouseClicked
+
+    private void CancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelButtonMouseClicked
+        int result = JOptionPane.showConfirmDialog(this, "Annuler la commande ?");
+        
+        if (result == 0) {
+            this.orderListManager.removeOrder(this.order);
+            this.order.setState("Annulée");
+            this.mainKitchenUI.showListOrderFrame();
+        }
+    }//GEN-LAST:event_CancelButtonMouseClicked
+
+    private void ValidateButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ValidateButtonMouseClicked
+        int result = JOptionPane.showConfirmDialog(this, "Valider la commande ?");
+        
+        if (result == 0) {
+            this.orderListManager.removeOrder(this.order);
+            this.order.setState("Terminée");
+            this.mainKitchenUI.showListOrderFrame();
+        }
+    }//GEN-LAST:event_ValidateButtonMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackButton;
+    private javax.swing.JButton CancelButton;
     private javax.swing.JLabel OrderNameLabel;
     private javax.swing.JPanel PricesPanel;
     private javax.swing.JPanel ProductsPanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton ValidateButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
@@ -137,5 +208,7 @@ public class OrderDetailPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
 }
