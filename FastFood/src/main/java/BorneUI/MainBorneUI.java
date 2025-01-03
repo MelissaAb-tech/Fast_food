@@ -12,13 +12,16 @@ import order.*;
  */
 public class MainBorneUI extends javax.swing.JFrame {
     private ChoiceFrame choiceFrame;
+    private PaymentFrame paymentFrame;
     private EditOrderFrame editOrderFrame;
     private OrderManager order;
-    
-    public MainBorneUI(OrderManager order, OrderListManager orderListManager) {
+    private String nomUser; 
+    private OrderListManager orderListManager;
+    public MainBorneUI(OrderManager order, OrderListManager orderListManager, String nomUser) {
         this.setTitle("Borne de commande");
         this.order = order;
-        this.choiceFrame = new ChoiceFrame(this);
+        this.nomUser=nomUser;
+        this.choiceFrame = new ChoiceFrame(this,this.nomUser);
         this.editOrderFrame = new EditOrderFrame(this.order, this, orderListManager);
         initComponents();
         this.setSize(800, 600);
@@ -38,14 +41,27 @@ public class MainBorneUI extends javax.swing.JFrame {
         this.revalidate();
         this.repaint();
     }
-    
-    public void showChoiceFrame() {
+    public OrderManager getOrderManager() {
+    return this.order;
+}
+
+public OrderListManager getOrderListManager() {
+    return this.orderListManager;
+}
+
+ public void showChoiceFrame() {
         this.remove(this.editOrderFrame);
         this.add(this.choiceFrame);
         
         this.revalidate();
         this.repaint();
     }
+    
+public void showPaymentFrame(Order currentOrder) {
+    PaymentFrame paymentFrame = new PaymentFrame(this, currentOrder);
+    paymentFrame.setVisible(true);
+    this.setVisible(false); 
+}
 
     /**
      * This method is called from within the constructor to initialize the form.

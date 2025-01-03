@@ -42,4 +42,7 @@ public class Menu implements Purchasable, Describable {
         
         return chaine;
     }
+     public ArrayList<Product> getProducts() {
+        return this.products;
+    }
 }

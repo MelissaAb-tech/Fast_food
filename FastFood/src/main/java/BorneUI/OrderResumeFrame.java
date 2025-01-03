@@ -54,12 +54,22 @@ public class OrderResumeFrame extends javax.swing.JPanel implements OrderView {
                 ClearOrderButtonMouseClicked(evt);
             }
         });
+        ClearOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearOrderButtonActionPerformed(evt);
+            }
+        });
         jPanel1.add(ClearOrderButton);
 
         ValidateOrder.setText("Valider la commande");
         ValidateOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ValidateOrderMouseClicked(evt);
+            }
+        });
+        ValidateOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ValidateOrderActionPerformed(evt);
             }
         });
         jPanel1.add(ValidateOrder);
@@ -98,16 +108,29 @@ public class OrderResumeFrame extends javax.swing.JPanel implements OrderView {
     }//GEN-LAST:event_ClearOrderButtonMouseClicked
 
     private void ValidateOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ValidateOrderMouseClicked
-        int result = JOptionPane.showConfirmDialog(this, String.format("Cela fait un total de %.2f€, passer commande ?", this.orderManager.getOrder().getPrice()));
-        
-        
-        if (result == 0) {
-            JOptionPane.showMessageDialog(this, "Merci pour votre commande, elle est en cours de préparation");
-            this.orderListManager.addOrder(this.orderManager.getOrder().copy());
-            this.orderManager.clearOrder();
-            this.main.showChoiceFrame();
-        }
+                                           
+    int result = JOptionPane.showConfirmDialog(
+            this,
+            String.format("Cela fait un total de %.2f€, passer commande ?", this.orderManager.getOrder().getPrice())
+    );
+
+    if (result == JOptionPane.YES_OPTION) {
+        JOptionPane.showMessageDialog(this, "Merci pour votre commande, elle est en cours de préparation");
+        this.orderListManager.addOrder(this.orderManager.getOrder().copy());
+       Order currentOrder=this.orderManager.getOrder();
+       main.showPaymentFrame(currentOrder);
+    }
+
+
     }//GEN-LAST:event_ValidateOrderMouseClicked
+
+    private void ClearOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearOrderButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ClearOrderButtonActionPerformed
+
+    private void ValidateOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValidateOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ValidateOrderActionPerformed
 
     @Override
     public void update(Order order) {
