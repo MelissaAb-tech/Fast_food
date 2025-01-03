@@ -29,6 +29,7 @@ BorneUI\SelectMenusFrame.class
 KitchenUI\OrderListFrame.class
 menu\MenuVegetarienFactory.class
 order\Order.class
+BorneUI\acceuilFrame$4.class
 product\burger\Oignon.class
 BorneUI\SelectProductsFrame$8.class
 product\burger\Tomate.class
@@ -39,8 +40,10 @@ general\Describable.class
 menu\MenuFactory.class
 menu\Menu.class
 BorneUI\OrderSummaryFrame.class
+BorneUI\CreateAccountFrame.class
 BorneUI\SelectProductsFrame$1.class
 KitchenUI\OrderDetailPanel$1.class
+BorneUI\CreateAccountFrame$2.class
 BorneUI\SelectMenusFrame$1.class
 product\burger\Poulet.class
 menu\MenuClassiqueFactory.class
@@ -67,6 +70,7 @@ KitchenUI\OrderDetailPanel$2.class
 product\burger\Ketchup.class
 BorneUI\MainBorneUI.class
 product\burger\Bacon.class
+BorneUI\CreateAccountFrame$1.class
 product\burger\BurgerDecorator.class
 product\burger\ChickenBurgerFactory.class
 general\Purchasable.class
