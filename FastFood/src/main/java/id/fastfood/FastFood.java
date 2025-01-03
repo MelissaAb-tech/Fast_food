@@ -1,6 +1,5 @@
 package id.fastfood;
 
-import BorneUI.MainBorneUI;
 import BorneUI.acceuilFrame;
 import KitchenUI.MainKitchenUI;
 import order.*;

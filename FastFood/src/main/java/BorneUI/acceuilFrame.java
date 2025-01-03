@@ -32,7 +32,6 @@ public class acceuilFrame extends javax.swing.JFrame {
         this.orderManager = orderManager;
         this.orderListManager = orderListManager;
         initComponents();
-        chargerComptesDepuisFichier("resources/comptes.txt");
     }
 
     /**
@@ -49,6 +48,7 @@ public class acceuilFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        NewAccountButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +75,13 @@ public class acceuilFrame extends javax.swing.JFrame {
             }
         });
 
+        NewAccountButton.setText("Nouveau compte");
+        NewAccountButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NewAccountButtonMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,7 +99,9 @@ public class acceuilFrame extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(NewAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -104,7 +113,8 @@ public class acceuilFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(NewAccountButton))
                 .addGap(63, 63, 63))
         );
 
@@ -131,6 +141,7 @@ public class acceuilFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       
 
+        this.chargerComptesDepuisFichier("data/comptes.txt");
     String code = jTextField1.getText().trim(); // Récupérer et nettoyer l'entrée utilisateur
 
     String nomUtilisateur = verifierCompte(code); // Vérifie le compte et récupère le nom
@@ -156,11 +167,16 @@ public class acceuilFrame extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void NewAccountButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewAccountButtonMouseClicked
+        CreateAccountFrame createAccountFrame = new CreateAccountFrame();
+        createAccountFrame.setVisible(true);
+    }//GEN-LAST:event_NewAccountButtonMouseClicked
   
       // Méthode pour charger les comptes depuis un fichier
 private void chargerComptesDepuisFichier(String cheminFichier) {
-    try (BufferedReader br = new BufferedReader(
-            new InputStreamReader(getClass().getClassLoader().getResourceAsStream(cheminFichier)))) {
+    File fichier = new File(cheminFichier);
+    try (BufferedReader br = new BufferedReader(new FileReader(fichier))) {
         String ligne;
         while ((ligne = br.readLine()) != null) {
             String[] donnees = ligne.split(",");
@@ -187,6 +203,7 @@ private void chargerComptesDepuisFichier(String cheminFichier) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton NewAccountButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
