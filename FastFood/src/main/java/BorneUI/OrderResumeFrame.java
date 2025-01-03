@@ -117,7 +117,8 @@ public class OrderResumeFrame extends javax.swing.JPanel implements OrderView {
     if (result == JOptionPane.YES_OPTION) {
         JOptionPane.showMessageDialog(this, "Merci pour votre commande, elle est en cours de préparation");
         this.orderListManager.addOrder(this.orderManager.getOrder().copy());
-       Order currentOrder=this.orderManager.getOrder();
+       Order currentOrder=this.orderManager.getOrder().copy();
+       this.orderManager.clearOrder();
        main.showPaymentFrame(currentOrder);
     }
 

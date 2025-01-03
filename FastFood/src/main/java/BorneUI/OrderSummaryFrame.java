@@ -111,6 +111,8 @@ public class OrderSummaryFrame extends javax.swing.JFrame {
     }
  private void closeAndReturnToAccueil() {
     this.dispose(); // Fermer la fenêtre actuelle
+    this.main.showChoiceFrame();
+    this.main.setVisible(true);
 
 }
 
