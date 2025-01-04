@@ -49,6 +49,7 @@ public class OrderResumeFrame extends javax.swing.JPanel implements OrderView {
         jPanel1.setLayout(new java.awt.GridLayout(1, 2, 10, 0));
 
         ClearOrderButton.setText("Vider la commande");
+        ClearOrderButton.setName("ClearOrderButton"); // NOI18N
         ClearOrderButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ClearOrderButtonMouseClicked(evt);
@@ -62,6 +63,7 @@ public class OrderResumeFrame extends javax.swing.JPanel implements OrderView {
         jPanel1.add(ClearOrderButton);
 
         ValidateOrder.setText("Valider la commande");
+        ValidateOrder.setName("ValidateOrder"); // NOI18N
         ValidateOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ValidateOrderMouseClicked(evt);
@@ -84,6 +86,7 @@ public class OrderResumeFrame extends javax.swing.JPanel implements OrderView {
 
         jPanel3.setLayout(new java.awt.BorderLayout());
 
+        ElementList.setName("ElementList"); // NOI18N
         ElementList.setLayout(new javax.swing.BoxLayout(ElementList, javax.swing.BoxLayout.Y_AXIS));
         jPanel3.add(ElementList, java.awt.BorderLayout.NORTH);
 
@@ -96,6 +99,7 @@ public class OrderResumeFrame extends javax.swing.JPanel implements OrderView {
 
         TotalPriceLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         TotalPriceLabel.setText("jLabel3");
+        TotalPriceLabel.setName("TotalPriceLabel"); // NOI18N
         jPanel4.add(TotalPriceLabel, java.awt.BorderLayout.CENTER);
 
         jPanel2.add(jPanel4, java.awt.BorderLayout.PAGE_END);

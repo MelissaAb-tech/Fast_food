@@ -42,6 +42,7 @@
         <Component class="javax.swing.JButton" name="ClearOrderButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Vider la commande"/>
+            <Property name="name" type="java.lang.String" value="ClearOrderButton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ClearOrderButtonMouseClicked"/>
@@ -51,6 +52,7 @@
         <Component class="javax.swing.JButton" name="ValidateOrder">
           <Properties>
             <Property name="text" type="java.lang.String" value="Valider la commande"/>
+            <Property name="name" type="java.lang.String" value="ValidateOrder" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ValidateOrderMouseClicked"/>
@@ -93,6 +95,9 @@
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
               <SubComponents>
                 <Container class="javax.swing.JPanel" name="ElementList">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="ElementList" noResource="true"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                       <BorderConstraints direction="North"/>
@@ -127,6 +132,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="text" type="java.lang.String" value="jLabel3"/>
+                <Property name="name" type="java.lang.String" value="TotalPriceLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
