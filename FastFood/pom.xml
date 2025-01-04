@@ -6,16 +6,14 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     
-    <!-- Section des dépendances existante -->
+    <!-- Section des dépendances -->
     <dependencies>
-        <!-- Vos dépendances actuelles restent inchangées -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.10.3</version>
             <scope>test</scope>
         </dependency>
-        <!-- ... autres dépendances ... -->
          <!-- JUnit Jupiter Engine pour exécuter les tests -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -33,7 +31,7 @@
         
     </dependencies>
 
-    <!-- Section des propriétés existante -->
+    <!-- Section des propriétés -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>18</maven.compiler.source>
