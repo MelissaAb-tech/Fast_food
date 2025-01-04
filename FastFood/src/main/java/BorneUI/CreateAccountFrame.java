@@ -101,6 +101,7 @@ public class CreateAccountFrame extends javax.swing.JFrame {
         jPanel4.add(jLabel2, gridBagConstraints);
 
         NameInput.setColumns(10);
+        NameInput.setName("NameInput"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 10);
         jPanel4.add(NameInput, gridBagConstraints);

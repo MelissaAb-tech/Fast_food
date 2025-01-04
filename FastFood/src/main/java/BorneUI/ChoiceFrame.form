@@ -51,6 +51,7 @@
               <Color blue="ff" green="99" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="user name"/>
+            <Property name="name" type="java.lang.String" value="jLabel2" noResource="true"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -126,6 +127,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[200, 100]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="MenuButton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MenuButtonMouseClicked"/>
@@ -135,6 +137,7 @@
         <Component class="javax.swing.JButton" name="ProductButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Choisir des produits"/>
+            <Property name="name" type="java.lang.String" value="ProductButton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ProductButtonMouseClicked"/>

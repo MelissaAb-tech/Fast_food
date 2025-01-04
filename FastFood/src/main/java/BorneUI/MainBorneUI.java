@@ -4,6 +4,7 @@
  */
 package BorneUI;
 
+import java.awt.Component;
 import order.*;
 
 /**
@@ -76,6 +77,18 @@ public void showPaymentFrame(Order currentOrder) {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public String getUserName() {
+        return this.nomUser;
+    }
+
+    public EditOrderFrame getEditOrderFrame() {
+        return this.editOrderFrame;
+    }
+
+    public ChoiceFrame getChoiceFrame() {
+        return this.choiceFrame;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

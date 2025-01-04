@@ -38,6 +38,7 @@ public class MenuItemComponent extends javax.swing.JPanel {
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jButton2.setText("Supprimer");
+        jButton2.setName("Supprimer"); // NOI18N
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);

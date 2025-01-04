@@ -48,6 +48,7 @@ public class ChoiceFrame extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 255));
         jLabel2.setText("user name");
+        jLabel2.setName("jLabel2"); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,6 +94,7 @@ public class ChoiceFrame extends javax.swing.JPanel {
 
         MenuButton.setText("Choisir un menu");
         MenuButton.setMinimumSize(new java.awt.Dimension(200, 100));
+        MenuButton.setName("MenuButton"); // NOI18N
         MenuButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 MenuButtonMouseClicked(evt);
@@ -105,6 +107,7 @@ public class ChoiceFrame extends javax.swing.JPanel {
         });
 
         ProductButton.setText("Choisir des produits");
+        ProductButton.setName("ProductButton"); // NOI18N
         ProductButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ProductButtonMouseClicked(evt);
