@@ -88,6 +88,7 @@ public class OrderDetailPanel extends javax.swing.JPanel {
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         BackButton.setText("Retour");
+        BackButton.setName("BackButton"); // NOI18N
         BackButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BackButtonMouseClicked(evt);
@@ -103,6 +104,7 @@ public class OrderDetailPanel extends javax.swing.JPanel {
         jPanel3.setLayout(new java.awt.GridLayout(1, 2, 10, 10));
 
         CancelButton.setText("Annuler");
+        CancelButton.setName("CancelButton"); // NOI18N
         CancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CancelButtonMouseClicked(evt);
@@ -111,6 +113,7 @@ public class OrderDetailPanel extends javax.swing.JPanel {
         jPanel3.add(CancelButton);
 
         ValidateButton.setText("Valider");
+        ValidateButton.setName("ValidateButton"); // NOI18N
         ValidateButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ValidateButtonMouseClicked(evt);
@@ -131,6 +134,7 @@ public class OrderDetailPanel extends javax.swing.JPanel {
         jPanel9.setLayout(new java.awt.BorderLayout());
 
         PricesPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        PricesPanel.setName("PricesPanel"); // NOI18N
         PricesPanel.setLayout(new java.awt.GridLayout(0, 1, 10, 10));
         jPanel9.add(PricesPanel, java.awt.BorderLayout.NORTH);
 
@@ -147,6 +151,7 @@ public class OrderDetailPanel extends javax.swing.JPanel {
         jPanel8.setLayout(new java.awt.BorderLayout());
 
         ProductsPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        ProductsPanel.setName("ProductsPanel"); // NOI18N
         ProductsPanel.setLayout(new java.awt.GridLayout(0, 1, 10, 10));
         jPanel8.add(ProductsPanel, java.awt.BorderLayout.NORTH);
 
@@ -160,6 +165,7 @@ public class OrderDetailPanel extends javax.swing.JPanel {
 
         OrderNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OrderNameLabel.setText("jLabel1");
+        OrderNameLabel.setName("OrderNameLabel"); // NOI18N
         jPanel7.add(OrderNameLabel);
 
         jPanel2.add(jPanel7, java.awt.BorderLayout.NORTH);
