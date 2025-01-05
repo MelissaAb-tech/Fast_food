@@ -38,5 +38,9 @@ public class OrderListManager {
         for (OrderListView view: this.views) {
             view.update(this.orderList);
         }
-    }    
+    }   
+
+    public ArrayList<Order> getOrderList() {
+        return this.orderList;
+    }
 }
