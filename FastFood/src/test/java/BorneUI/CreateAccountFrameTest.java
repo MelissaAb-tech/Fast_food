@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package BorneUI;
 
 /**
@@ -41,66 +37,47 @@ class CreateAccountFrameTest {
 
     @BeforeEach
     void setUp() {
-        // Create and show the frame for testing
         CreateAccountFrame frame = new CreateAccountFrame();
         frame.setName("frame0");
         window = new FrameFixture(frame);
-        window.show(); // Show the frame for the test
+        window.show(); 
     }
 
     @AfterEach
     void tearDown() {
-        window.cleanUp(); // Clean up resources after each test
+        window.cleanUp(); 
     }
 
     @Test
     void testInvalidName() {
-        // Simulate entering an invalid name (empty name)
         JTextComponentFixture nameField = window.textBox("NameInput");
-        nameField.enterText(""); // Leave the name field empty
-        
-        // Click the "Create" button
+        nameField.enterText(""); 
         window.button(JButtonMatcher.withText("Créer")).click();
-        
-        // Use DialogFixture to check for the error message
         DialogFixture dialog = window.dialog();
-        
-        String dialogText = dialog.label("OptionPane.label").text(); // Get the text of the first label
-        
-        // Check if the error message is as expected
+        String dialogText = dialog.label("OptionPane.label").text(); 
+
         assertThat(dialogText).contains("Le nom rentré n'est pas valide");
 }
    /* @Test
     void testValidAccountCreation() throws IOException {
-        // Simulate entering a valid name
         String validName = "John Doe";
         JTextComponentFixture nameField = window.textBox("NameInput");
         nameField.enterText(validName);
-
-        // Simulate clicking the "Create" button
         window.button(JButtonMatcher.withText("Créer")).click();
-
-        // Use DialogFixture to check for the success message
         DialogFixture dialog = window.dialog();
-        String dialogText = dialog.label("OptionPane.label").text(); // Assuming the success message is in a JLabel
+        String dialogText = dialog.label("OptionPane.label").text(); 
         assertTrue(dialogText.contains("Compte créé avec succès !"));
-        
-        // Verify that the new account was added to the file (data/comptes.txt)
+
         File file = new File("data/comptes.txt");
         assertTrue(file.exists(), "The account file should exist");
 
-        // Verify that the name and account number are saved correctly
-        // You need to adjust the account number because it's randomly generated
-        // Use a regex to match the account number dynamically
         String content = new String(java.nio.file.Files.readAllBytes(file.toPath()));
-        // Check if the content contains the name and any 5-digit number
         assertTrue(content.contains(validName), "Account name should be present in the file");
         assertTrue(content.matches(".*" + validName + ",\\d{5}.*"), "Account line should match the format with a valid number");
     }*/
 
     @Test
     void testCancelButtonWithListener() throws InterruptedException {
-    // Créer un listener pour vérifier que la fenêtre est fermée
         AtomicBoolean isClosed = new AtomicBoolean(false);
         window.target().addWindowListener(new WindowAdapter() {
             @Override
@@ -108,14 +85,9 @@ class CreateAccountFrameTest {
             isClosed.set(true);
         }
     });
-
-    // Cliquer sur le bouton "Annuler"
     window.button(JButtonMatcher.withText("Annuler")).click();
-
-    // Attendre que la fenêtre soit fermée
     Thread.sleep(500);
 
-    // Vérifier si la fenêtre a bien été fermée
     assertTrue(isClosed.get(), "La fenêtre n'a pas été fermée.");
 }
 
