@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package BorneUI;
 
 /**
@@ -32,28 +28,23 @@ public class EditOrderFrameTest {
 
     @BeforeEach
     void setUp() {
-        // Créez les objets nécessaires avec les bons arguments
-        orderManager = new OrderManager(new Order());  // Assurez-vous d'utiliser les bons arguments
-        main = new MainBorneUI(orderManager, new OrderListManager(new ArrayList<>()), "parametre1");  // Passer les bons arguments
+        orderManager = new OrderManager(new Order());  
+        main = new MainBorneUI(orderManager, new OrderListManager(new ArrayList<>()), "parametre1");  
         orderListManager = new OrderListManager(new ArrayList<Order>());
-
-        // Créez la fenêtre EditOrderFrame
         EditOrderFrame editOrderFrame = new EditOrderFrame(orderManager, main, orderListManager);
-
         JFrame testFrame = GuiActionRunner.execute(() -> {
             JFrame frame = new JFrame();
             frame.setContentPane(editOrderFrame);
-            frame.pack(); // Adjust size to fit components
+            frame.pack(); 
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             return frame;
         });
-        // Créez un FrameFixture avec le JFrame
         window = new FrameFixture(testFrame);
         window.show();
     }
     @AfterEach
     void tearDown() {
-        window.cleanUp(); // Cleanup resources after each test
+        window.cleanUp();
     }
     /*@Test
 public void testShowSelectMenusFrame() {
