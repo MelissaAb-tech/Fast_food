@@ -198,4 +198,14 @@ public class OrderListManagerTest {
                     secondView.getLastUpdatedList().size(),
                 "Les deux vues devraient avoir la même taille de liste");
     }
+
+    @Test
+    public void testGetOrderList() {
+        // Ajouter des commandes dans l'OrderListManager
+        orderListManager.addOrder(order1);
+        orderListManager.addOrder(order2);
+        ArrayList<Order> orderList = orderListManager.getOrderList();
+        assertThat(orderList).hasSize(2); 
+        assertThat(orderList).contains(order1, order2);
+    }
 }
