@@ -18,14 +18,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import order.OrderManager;
-import product.burger.CheeseBurgerFactory;
-import product.burger.HamburgerFactory;
-import product.burger.VeggieFactory;
-import product.burger.BaconBurgerFactory;
-import product.burger.ChickenBurgerFactory;
-import product.burger.DoubleCheeseFactory;
-import product.drink.DrinkFactory;
-import product.dessert.DessertFactory;
 
 public class SelectProductsFrameTest {
 
@@ -123,7 +115,20 @@ public class SelectProductsFrameTest {
         assertEquals("Jus", orderManager.getOrder().getProducts().get(0).getName(),
             "Le produit ajouté devrait être un Jus.");
     }
-
+    @Test
+    public void testAddThe() {
+        window.button(JButtonMatcher.withText("Thé 2.00€")).click();
+        assertEquals(1, orderManager.getOrder().getProducts().size(), "Un produit devrait être ajouté.");
+        assertEquals("Thé", orderManager.getOrder().getProducts().get(0).getName(),
+            "Le produit ajouté devrait être un Thé.");
+    }
+    @Test
+    public void testAddLimonade() {
+        window.button(JButtonMatcher.withText("Limonade 2.50€")).click();
+        assertEquals(1, orderManager.getOrder().getProducts().size(), "Un produit devrait être ajouté.");
+        assertEquals("Limonade", orderManager.getOrder().getProducts().get(0).getName(),
+            "Le produit ajouté devrait être un Limonade.");
+    }
     @Test
     public void testAddGlace() {
         window.button(JButtonMatcher.withText("Glace 3.00€")).click();
@@ -138,6 +143,34 @@ public class SelectProductsFrameTest {
         assertEquals(1, orderManager.getOrder().getProducts().size(), "Un produit devrait être ajouté.");
         assertEquals("Tarte", orderManager.getOrder().getProducts().get(0).getName(),
             "Le produit ajouté devrait être une Tarte.");
+    }
+    @Test
+    public void testAddBrownie() {
+        window.button(JButtonMatcher.withText("Brownie 2.00€")).click();
+        assertEquals(1, orderManager.getOrder().getProducts().size(), "Un produit devrait être ajouté.");
+        assertEquals("Brownie", orderManager.getOrder().getProducts().get(0).getName(),
+            "Le produit ajouté devrait être un Brownie.");
+    }
+    @Test
+    public void testAddFondant() {
+        window.button(JButtonMatcher.withText("Fondant 2.00€")).click();
+        assertEquals(1, orderManager.getOrder().getProducts().size(), "Un produit devrait être ajouté.");
+        assertEquals("Fondant", orderManager.getOrder().getProducts().get(0).getName(),
+            "Le produit ajouté devrait être un Fondant.");
+    }
+    @Test
+    public void testAddMacaron() {
+        window.button(JButtonMatcher.withText("Macaron 3.00€")).click();
+        assertEquals(1, orderManager.getOrder().getProducts().size(), "Un produit devrait être ajouté.");
+        assertEquals("Macaron", orderManager.getOrder().getProducts().get(0).getName(),
+            "Le produit ajouté devrait être un Macaron.");
+    }
+    @Test
+    public void testAddDonut() {
+        window.button(JButtonMatcher.withText("Donut 3.00€")).click();
+        assertEquals(1, orderManager.getOrder().getProducts().size(), "Un produit devrait être ajouté.");
+        assertEquals("Donut", orderManager.getOrder().getProducts().get(0).getName(),
+            "Le produit ajouté devrait être un Donut.");
     }
 }
 
