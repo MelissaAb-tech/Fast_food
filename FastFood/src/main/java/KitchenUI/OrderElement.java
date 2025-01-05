@@ -43,6 +43,7 @@ public class OrderElement extends javax.swing.JPanel {
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
 
         DetailButton.setText("Détails");
+        DetailButton.setName("DetailButton"); // NOI18N
         DetailButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DetailButtonMouseClicked(evt);
@@ -56,6 +57,7 @@ public class OrderElement extends javax.swing.JPanel {
         jPanel2.setLayout(new java.awt.BorderLayout());
 
         OrderNameLabel.setText("jLabel1");
+        OrderNameLabel.setName("OrderNameLabel"); // NOI18N
         jPanel2.add(OrderNameLabel, java.awt.BorderLayout.CENTER);
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
