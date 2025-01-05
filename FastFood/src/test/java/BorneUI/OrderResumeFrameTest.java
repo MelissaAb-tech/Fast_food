@@ -5,6 +5,7 @@ package BorneUI;
  * @author conte
  */
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import menu.Menu;
@@ -76,7 +77,7 @@ public class OrderResumeFrameTest {
         assertEquals(0, newItemCount, "La commande n'a pas été vidée.");
     }
 
-   /* @Test
+    @Test
     public void testValidateOrderButton() {
         orderResumeFrame.update(orderManager.getOrder());
         window.label("TotalPriceLabel").requireText("Total : 15.0€");
@@ -84,12 +85,9 @@ public class OrderResumeFrameTest {
 
         DialogFixture dialog = window.dialog();
         String dialogText = dialog.label("OptionPane.label").text(); 
-        //Probleme
-        assertThat(dialogText).contains("Cela fait un total de 15.00€, passer commande ?");
+        assertThat(dialogText).contains("Cela fait un total de 15,00€, passer commande ?");
       
-        //window.dialog().requireTitle("Confirmation");
-        //window.dialog().requireText("Cela fait un total de 15.00€, passer commande ?");
-    }*/
+    }
 
     //tous les boutons dans la boite de dialogue ont le même nom donc on ne peut pas les tester
    /* @Test
@@ -102,9 +100,12 @@ public class OrderResumeFrameTest {
     }*/
 
     @Test
-    public void testElementListUpdate() {
+    public void testElementListUpdate() throws Exception {
         Product newProduct = new Drink("New Product", 7.0);
         orderManager.addProduct(newProduct);
-        //assertTrue(orderResumeFrame.ElementList.getComponentCount() > 2, "La liste des éléments n'a pas été mise à jour.");
+        Field elementListField = OrderResumeFrame.class.getDeclaredField("ElementList");
+        elementListField.setAccessible(true);
+        javax.swing.JPanel elementList = (javax.swing.JPanel) elementListField.get(orderResumeFrame);
+        assertTrue(elementList.getComponentCount() > 2, "La liste des éléments n'a pas été mise à jour.");
     }
 }

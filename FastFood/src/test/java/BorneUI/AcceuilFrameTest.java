@@ -5,6 +5,8 @@ package BorneUI;
  */
 
 import java.awt.Frame;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -161,12 +163,27 @@ void testJButton2ActionPerformed() throws Exception {
     }
     assertTrue(found);
 }
-/*@Test
+@Test
 void testNewAccountButtonMouseClicked() throws Exception {
+    acceuilFrame.setVisible(true);
     Field buttonField = acceuilFrame.getClass().getDeclaredField("NewAccountButton");
     buttonField.setAccessible(true);
     JButton newAccountButton = (JButton) buttonField.get(acceuilFrame);
-    newAccountButton.doClick();
+    Point location = newAccountButton.getLocationOnScreen();
+    int x = location.x + newAccountButton.getWidth() / 2; 
+    int y = location.y + newAccountButton.getHeight() / 2;
+    MouseEvent mouseClickedEvent = new MouseEvent(
+            newAccountButton, 
+            MouseEvent.MOUSE_CLICKED, 
+            System.currentTimeMillis(), 
+            0, 
+            x, y, 
+            1, 
+            false, 
+            MouseEvent.BUTTON1 
+    );
+    newAccountButton.dispatchEvent(mouseClickedEvent);
+
     boolean found = false;
     for (Frame frame : Frame.getFrames()) {
         if (frame instanceof CreateAccountFrame && frame.isVisible()) {
@@ -174,8 +191,9 @@ void testNewAccountButtonMouseClicked() throws Exception {
             break;
         }
     }
-    assertTrue(found);
-}*/
+    assertTrue(found, "La fenêtre CreateAccountFrame n'a pas été ouverte ou rendue visible après le clic.");
+}
+
 @Test
 void testJTextField1ActionPerformed() throws Exception {
     Field textFieldField = acceuilFrame.getClass().getDeclaredField("jTextField1");
