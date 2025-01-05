@@ -57,12 +57,14 @@ public class OrderListFrame extends javax.swing.JPanel implements OrderListView 
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Commandes");
+        jLabel1.setName("jLabel1"); // NOI18N
         jPanel1.add(jLabel1, java.awt.BorderLayout.CENTER);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
+        orderListPanel.setName("orderListPanel"); // NOI18N
         orderListPanel.setLayout(new javax.swing.BoxLayout(orderListPanel, javax.swing.BoxLayout.Y_AXIS));
         jPanel2.add(orderListPanel, java.awt.BorderLayout.PAGE_START);
 
